@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+	<ItemDefinitionGroup>
+		<ClCompile>
+			<AdditionalIncludeDirectories>
+				c:/Code/libraries/zlib-1.2.11/;
+				c:/Code/libraries/zlib-1.2.11/out/build/$(PlatformShortName)-$(Configuration)/;
+				%(AdditionalIncludeDirectories)
+			</AdditionalIncludeDirectories>
+      <PreprocessorDefinitions>
+				LODEPNG_NO_COMPILE_DECODER;
+				LODEPNG_NO_COMPILE_ANCILLARY_CHUNKS;
+        %(PreprocessorDefinitions)
+      </PreprocessorDefinitions>
+		</ClCompile>
+		<Link>
+			<AdditionalLibraryDirectories>
+				c:/Code/libraries/zlib-1.2.11/out/build/$(PlatformShortName)-$(Configuration)/;
+				%(AdditionalLibraryDirectories)
+			</AdditionalLibraryDirectories>
+			<AdditionalDependencies Condition="'$(Configuration)'=='Debug'">
+				zlibd.lib;
+				%(AdditionalDependencies)
+			</AdditionalDependencies>
+			<AdditionalDependencies Condition="'$(Configuration)'=='Release'">
+				zlib.lib;
+				%(AdditionalDependencies)
+			</AdditionalDependencies>
+		</Link>
+	</ItemDefinitionGroup>
+</Project>
